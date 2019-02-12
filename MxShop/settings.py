@@ -104,10 +104,10 @@ WSGI_APPLICATION = 'MxShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'MxShop',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '120.78.193.99',
+        'NAME': os.getenv('MYSQL_DB'),
+        'USER': os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PWD'),
+        'HOST': os.getenv('MYSQL_HOST'),
         "OPTIONS":{"init_command":"SET default_storage_engine=INNODB;"}
     }
 }
@@ -153,10 +153,12 @@ STATIC_URL = '/static/'
 
 # 配置media访问路径
 MEDIA_URL = "/media/"
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, 'static')
-]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+# STATICFILES_DIRS = [
+# 	os.path.join(BASE_DIR, 'static')
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
