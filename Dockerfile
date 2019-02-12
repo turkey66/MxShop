@@ -15,9 +15,9 @@ RUN pip install -i https://pypi.douban.com/simple -r requirements.txt
 
 CMD ["uwsgi", "-i", "conf/uwsgi.ini"]
 
-# docker build -t iMxShop .
+# docker build -t imxshop .
 
-# docker run --name cMxShop -v $PWD:/MxShop -e MYSQL_DB=MxShop -e MYSQL_USER=root -e MYSQL_PWD=123456 -e MYSQL_HOST=120.78.193.99 -d iMxShop
+# docker run --name cmxshop -v $PWD:/MxShop -e MYSQL_DB=MxShop -e MYSQL_USER=root -e MYSQL_PWD=123456 -e MYSQL_HOST=120.78.193.99 -d imxshop
 
 # 启动uwsgi后，查看该容器的ip为多少
 # docker network inspect bridge   #172.17.0.3
